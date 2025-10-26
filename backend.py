@@ -27,7 +27,7 @@ def backendless_response(response):
         return jsonify({"error": error_message, "details": data}), response.status_code
 
 # 1. READ ALL USERS (GET /users1)
-@app.route('/users1', methods=['GET'])
+@app.route('/users', methods=['GET'])
 def get_all_users():
     """
     Retrieves all user records from the Backendless 'users1' table.
@@ -41,7 +41,7 @@ def get_all_users():
         return jsonify({"error": "Failed to connect to Backendless API", "details": str(e)}), 503
 
 # 2. CREATE A NEW USER (POST /users1)
-@app.route('/users1', methods=['POST'])
+@app.route('/users', methods=['POST'])
 def create_user():
     """
     Creates a new user record in the Backendless 'users1' table.
@@ -69,7 +69,7 @@ def create_user():
         return jsonify({"error": "Failed to connect to Backendless API", "details": str(e)}), 503
 
 # 3. READ ONE USER BY ID (GET /users1/<object_id>)
-@app.route('/users1/<string:object_id>', methods=['GET'])
+@app.route('/users/<string:object_id>', methods=['GET'])
 def get_user(object_id):
     """
     Retrieves a single user record by its Backendless objectId.
@@ -84,7 +84,7 @@ def get_user(object_id):
         return jsonify({"error": "Failed to connect to Backendless API", "details": str(e)}), 503
 
 # 4. UPDATE A USER (PUT /users1/<object_id>)
-@app.route('/users1/<string:object_id>', methods=['PUT'])
+@app.route('/users/<string:object_id>', methods=['PUT'])
 def update_user(object_id):
     """
     Updates an existing user record by its Backendless objectId.
@@ -115,7 +115,7 @@ def update_user(object_id):
         return jsonify({"error": "Failed to connect to Backendless API", "details": str(e)}), 503
 
 # 5. DELETE A USER (DELETE /users1/<object_id>)
-@app.route('/users1/<string:object_id>', methods=['DELETE'])
+@app.route('/users/<string:object_id>', methods=['DELETE'])
 def delete_user(object_id):
     """
     Deletes a single user record by its Backendless objectId.
